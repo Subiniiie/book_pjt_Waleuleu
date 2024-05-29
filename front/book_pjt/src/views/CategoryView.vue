@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h1>카테고리</h1>
   </div>
 </template>
 

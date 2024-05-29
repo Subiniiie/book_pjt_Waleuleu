@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h2>카ㅔ고리-외서</h2>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h2>로그인</h2>
   </div>
 </template>
 

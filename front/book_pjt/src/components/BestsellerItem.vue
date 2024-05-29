@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h2>베스트샐러 상세페이지</h2>
   </div>
 </template>
 

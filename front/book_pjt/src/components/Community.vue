@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h2>커뮤니티(게시글목록)</h2>
   </div>
 </template>
 

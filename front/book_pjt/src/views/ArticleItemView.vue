@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h1>게시글 상세페이지</h1>
   </div>
 </template>
 

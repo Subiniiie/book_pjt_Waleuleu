@@ -1,6 +1,6 @@
 <template>
   <div>
-    <H1>메인페이지</H1>
+    <h2>최신도서 상세리스트</h2>
   </div>
 </template>
 
