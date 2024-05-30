@@ -5,9 +5,9 @@
 </template>
 
 <script setup>
-
+import { useCounterStore } from '@/stores/counter'
+import { onMounted } from 'vue'
 </script>
-
 <style scoped>
 
 </style>
