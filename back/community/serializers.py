@@ -1,14 +1,20 @@
-from rest_framework import serializer
+from rest_framework import serializers
 from .models import Article, Comment
 
-class ArticleSerializer(serializer.ModelSerializer):
+class ArticleSerializer(serializers.ModelSerializer):
   
   class Meta :
     model = Article
+    fields = ('id', 'user', 'title', 'content')
+    
+class ArticleItemSerializer(serializers.ModelSerializer):
+  class Meta :
+    model = Article
     fields = '__all__'
+    read_only_fields = ('user',)
     
     
-class Commentserilalizer(serializer.ModelSerializer):
+class Commentserilalizer(serializers.ModelSerializer):
   
   class Meta:
     model = Comment
