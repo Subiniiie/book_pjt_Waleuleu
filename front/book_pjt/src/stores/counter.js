@@ -8,6 +8,7 @@ export const useCounterStore = defineStore('counter', () => {
   const API_URL = 'http://127.0.0.1:8000'
 
   const token = ref(null)
+  const user = ref([])
   const router = useRouter()
 
   // 회원가입
@@ -54,14 +55,16 @@ export const useCounterStore = defineStore('counter', () => {
       .then((response) => {
         alert('로그인성공')
         token.value = response.data.key
+        user.value = response.data
+        console.log(user)
         router.push({ name: 'home' })
-      })
+        })
       .catch((error) => {
         console.log('에러가 발생했습니다', error)
       })
   }
   return {
-    API_URL,
+    API_URL, token, user,
     signUp, logIn, 
   }
 
