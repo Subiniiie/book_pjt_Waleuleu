@@ -24,7 +24,6 @@ const newBook = function() {
   })
 }
 
-
 </script>
 
 <style scoped>
