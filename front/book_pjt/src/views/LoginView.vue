@@ -20,8 +20,8 @@ import { useCounterStore } from '@/stores/counter'
 const store = useCounterStore()
 
 // input id인 username, password와 양방향 소통
-const username = ref(null)
-const password = ref(null)
+const username = ref('')
+const password = ref('')
 
 const logIn = function() {
   const payload = {

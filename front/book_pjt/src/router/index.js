@@ -83,7 +83,7 @@ const router = createRouter({
       component: ArticleCreateView
     },
     {
-      path: '/mypage/:id',
+      path: '/mypage/',
       name: 'mypage',
       component: MypageView
     }
