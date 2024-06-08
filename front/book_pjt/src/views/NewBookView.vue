@@ -1,21 +1,22 @@
 <template>
   <div>
     <h1>최신도서</h1>
+    {{ BookStore.books }}
     <NewBook />
   </div>
 </template>
 
 <script setup>
-// import { onMounted } from 'vue'
+import { onMounted } from 'vue'
 
-// import { useBookStore } from '@/stores/book'
+import { useBookStore } from '@/stores/book'
 import NewBook from '@/components/NewBook.vue';
 
-// const BookStore = useBookStore()
+const BookStore = useBookStore()
 
-// onMounted(() => {
-//   BookStore.getNewbooks()
-// })
+onMounted(() => {
+  BookStore.getNewbooks()
+})
 </script>
 
 <style scoped>
