@@ -3,7 +3,7 @@
     <h1>최신도서</h1>
     <ul>
       <div 
-        v-for="newBook in BookStore.books"
+        v-for="newBook in BookStore.newBooks"
         :key="newBook.title"
         class="book"
       >

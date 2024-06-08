@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 import axios from 'axios'
 
 export const useBookStore = defineStore('book', () => {
-  const books = ref([])
+  const newBooks = ref([])
   const API_KEY = import.meta.env.VITE_APP_ALADIN_API_KEY
 
   const getNewbooks = function() {
@@ -21,7 +21,7 @@ export const useBookStore = defineStore('book', () => {
         } 
     })
       .then((response) => {
-        books.value = response.data.item
+        newBooks.value = response.data.item
       })
       .catch((error) => {
         console.log('에러는',error)
@@ -30,7 +30,7 @@ export const useBookStore = defineStore('book', () => {
     
 
   return {
-    books,
+    newBooks,
     getNewbooks
   }
 })
