@@ -21,7 +21,10 @@ export const useCommunityStore = defineStore('article', () => {
       }
     })
       .then((response) => {
-        console.log('여기까지옴')
+        router.push({name: 'article-item', params:{id:response.data.id}})
+      })
+      .catch((error) => {
+        console.log('에러는', error)
       })
   }
 
