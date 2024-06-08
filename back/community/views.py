@@ -20,6 +20,8 @@ def community(request):
     if serializer.is_valid(raise_exception=True):
       serializer.save(user=request.user)
       return Response(serializer.data)
+    
+    
 # 게시물 상세페이지
 @api_view(['GET', 'PUT', 'DELETE'])
 def article_detail(request, article_pk):

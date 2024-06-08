@@ -4,10 +4,26 @@ import { defineStore } from 'pinia'
 import { useRouter } from 'vue-router'
 import { useCounterStore } from './counter'
 
-
 export const useCommunityStore = defineStore('article', () => {
   const token = useCounterStore().token
   const router = useRouter()
+
+  // 게시물 생성
+  const createArticle = function({title, content}) {
+    axios({
+      method: 'post',
+      url: 'http://127.0.0.1:8000/api/v1/community/',
+      data: {
+        title, content
+      },
+      headers: {
+        Authorization: `Token ${token}`
+      }
+    })
+      .then((response) => {
+        console.log('여기까지옴')
+      })
+  }
 
 
   // 게시글 목록 출력
@@ -22,7 +38,7 @@ export const useCommunityStore = defineStore('article', () => {
       }
     })
       .then((response) => {
-        console.log(response)
+        articleList.value = response.data
       })
       .catch((error) => {
         console.log('에러는', error)
@@ -34,13 +50,13 @@ export const useCommunityStore = defineStore('article', () => {
   const getDetailArticle = function(pk) {
     axios({
       method: 'get',
-      url: `http://127.0.0.1:8000/api/v1/community/${pk}`,
+      url: `http://127.0.0.1:8000/api/v1/article/${pk}/`,
       headers: {
         Authorization: `Token ${token}`
       }
     })
       .then((response) => {
-        console.log(response)
+        detailArticle.value = response.data
       })
       .catch((error) => {
         console.log('에러는', error)
@@ -48,6 +64,6 @@ export const useCommunityStore = defineStore('article', () => {
   }
   return {
     articleList, detailArticle,
-    getArticleList, getDetailArticle,
+    createArticle, getArticleList, getDetailArticle,
   }
 })

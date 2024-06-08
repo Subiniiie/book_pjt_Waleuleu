@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>커뮤니티</h1>
-
+    <router-link :to="{name: 'article-create'}">게시글 생성</router-link>
     <div
       v-for="article in communityStore.articleList"
       :key="article.pk"
