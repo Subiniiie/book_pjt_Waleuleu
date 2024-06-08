@@ -7,7 +7,7 @@
         :key="newBook.title"
         class="book"
       >
-      <img :src="newBook.cover" alt="">
+      <img :src="newBook.cover" alt="{{ newBook.cover }}" @click="makeModal(newBook)">
         <h1>{{ newBook.title }}</h1>
         <h2>{{ newBook.author }}</h2>
         <h2>{{ newBook.publisher }}</h2>
@@ -16,23 +16,39 @@
     </div>
     </ul>
   </div>
+  <div v-if="isActive" id="modal">
+    {{ selectedBook.title }}
+  </div>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-
+import { ref, onMounted } from 'vue'
 import { useBookStore } from '@/stores/book'
-import NewBook from '@/components/NewBook.vue';
 
 const BookStore = useBookStore()
 
 onMounted(() => {
   BookStore.getNewbooks()
 })
+
+// 이미지 클릭하면 책 정보
+const isActive = ref(false)
+const selectedBook = ref(null)
+
+const makeModal = function(newBook) {
+  selectedBook.value = newBook
+  isActive.value = true
+}
 </script>
 
 <style scoped>
 .book {
   border: 1px solid black;
+}
+
+#modal {
+  width: 400px;
+  height: 400px;
+  border: 5px solid black;
 }
 </style>

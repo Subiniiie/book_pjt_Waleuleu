@@ -22,7 +22,6 @@ export const useBookStore = defineStore('book', () => {
     })
       .then((response) => {
         books.value = response.data.item
-        console.log(books.value)
       })
       .catch((error) => {
         console.log('에러는',error)
