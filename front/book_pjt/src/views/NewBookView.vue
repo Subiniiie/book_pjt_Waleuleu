@@ -8,18 +8,19 @@
         class="book"
       >
       <img :src="newBook.cover" alt="{{ newBook.cover }}" @click="makeModal(newBook)">
-        <h1>{{ newBook.title }}</h1>
-        <h2>{{ newBook.author }}</h2>
-        <h2>{{ newBook.publisher }}</h2>
-        <h2>{{ newBook.pubDate }}</h2>
-        <p>줄거리 : {{ newBook.description }}</p>
     </div>
     </ul>
   </div>
   <div v-if="isActive" id="modal">
-    {{ selectedBook.title }}
+    <img :src="selectedBook.cover" alt="{{ selected.cover }}">
+    <h1>{{ selectedBook.title }}</h1>
+    <h2>{{ selectedBook.author }}</h2>
+    <h4>{{ selectedBook.publisher }}</h4>
+    <h4>{{ selectedBook.pubDate }}</h4>
+    <h4>{{ selectedBook.priceSales }}</h4>
+    <p>{{ selectedBook.description }}</p>
   </div>
-</template>
+  </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
@@ -47,8 +48,8 @@ const makeModal = function(newBook) {
 }
 
 #modal {
-  width: 400px;
-  height: 400px;
+  width: 1800px;
+  height: 1000px;
   border: 5px solid black;
 }
 </style>
