@@ -8,10 +8,25 @@
       <p>{{ communityStore.detailArticle.updated_at }}</p>
       <p>{{ communityStore.detailArticle.content }}</p>
     </div>
+    <div>
+      <CommentCreate
+        :articlePk="communityStore.detailArticle.id"
+      />
+      <ul>
+        <CommentList
+          v-for="comment in communityStore.detailArticle.comment_set"
+          :key="comment.id"
+          :comment="comment"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 
 <script setup>
+import CommentCreate from '../components/CommentCreate.vue'
+import CommentList from '../components/CommentList.vue'
+
 import { onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useCommunityStore } from '../stores/community'

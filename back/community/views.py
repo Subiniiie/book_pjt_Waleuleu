@@ -37,3 +37,13 @@ def article_detail(request, article_pk):
   elif request.method == 'DELETE':
     article.delete()
     return Response(status=status.HTTP_204_NO_CONTENT)
+  
+  
+# 댓글달기
+@api_view(['POST'])
+def comment_create(request, article_pk):
+  article = Article.objects.get(pk=article_pk)
+  serializer = CommentSerializer(data=request.data)
+  if serializer.is_valid(raise_exception=True):
+    serializer.save(article=article, user=request.user)
+    return Response(serializer.data)

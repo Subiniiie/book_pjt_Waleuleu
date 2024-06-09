@@ -12,7 +12,13 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ArticleSerializer(serializers.ModelSerializer):
   user = UserSerializer(read_only=True)
-  
+  class CommentSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
+    
+    class Meta :
+      model = Comment
+      fields = '__all__'
+  comment_set = CommentSerializer(many=True, read_only=True)
   class Meta :
     model = Article
     fields = '__all__'
