@@ -24,8 +24,23 @@ export const useCommentStore = defineStore('comment', () => {
         console.log('에러는', error)
       })
   }
+
+  const commentDelete = function(articlePk, commentPk) {
+    axios({
+      method: 'delete',
+      url: `http://127.0.0.1:8000/api/v1/article/${articlePk}/comments/${commentPk}/`,
+      headers: {
+        Authorization: `Token ${token}`
+      }
+    })
+      .then((response) => {
+        communityStore.detailArticle.comment_set = communityStore.detailArticle.comment_set.filter((comment) => {
+          return comment.id != commentPk
+        })
+      })
+  }
   return {
-    commentCreate,
+    commentCreate, commentDelete
   }
 }, { persist: true}
 )

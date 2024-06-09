@@ -47,3 +47,12 @@ def comment_create(request, article_pk):
   if serializer.is_valid(raise_exception=True):
     serializer.save(article=article, user=request.user)
     return Response(serializer.data)
+  
+  
+# 댓글삭제
+@api_view(['DELETE'])
+def comment_delete(request, article_pk, comment_pk):
+  article = Article.objects.get(pk=article_pk)
+  comment = article.comment_set.get(pk=comment_pk)
+  comment.delete()
+  return Response(status=status.HTTP_204_NO_CONTENT)
