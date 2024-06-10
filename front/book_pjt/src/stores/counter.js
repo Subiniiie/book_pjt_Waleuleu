@@ -73,9 +73,27 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('에러가 발생했습니다', error)
       })
   }
+
+  // 마이페이지
+  const userInfo = ref([])
+  const getMyPage = function() {
+    axios({
+      method: 'get',
+      url: `${API_URL}/api/v1/mypage/`,
+      headers: {
+        Authorization: `Token ${token.value}`
+      }
+    })
+      .then((response) => {
+        userInfo.value = response.data
+      })
+      .catch((error) => {
+        console.log('에러가 발생했습니다', error)
+      })
+  }
   return {
-    API_URL, token, user, isAuthenticated,
-    signUp, logIn, 
+    API_URL, token, user, isAuthenticated, userInfo,
+    signUp, logIn, getMyPage,
   }
 
 }, {persist:true})
