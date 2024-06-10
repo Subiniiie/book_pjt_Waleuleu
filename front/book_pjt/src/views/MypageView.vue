@@ -11,8 +11,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 import { useCounterStore } from '@/stores/counter'
+
 
 const store = useCounterStore()
 
