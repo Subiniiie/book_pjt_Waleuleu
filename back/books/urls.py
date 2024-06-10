@@ -1,8 +1,8 @@
-from djago.urls import path
+from django.urls import path
 from . import views
 
 
 urlpatterns = [
-    path('newbook/'),
-    path('bestseller/'),
+    path('newbook/', views.newbook),
+    path('bestseller/', views.bestseller),
 ]

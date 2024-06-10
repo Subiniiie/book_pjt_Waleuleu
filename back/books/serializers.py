@@ -10,7 +10,7 @@ class NewBookSerializer(serializers.ModelSerializer):
     
     
 # 베스트셀러
-class BestsellerSerializer(serializer.ModelSerializer):
+class BestsellerSerializer(serializers.ModelSerializer):
   
   class Meta:
     model = Bestseller

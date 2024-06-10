@@ -10,16 +10,16 @@
       <img :src="newBook.cover" alt="{{ newBook.cover }}" @click="makeModal(newBook)">
     </div>
     </ul>
-  </div>
-  <div v-if="isActive" id="modal">
-    <img :src="selectedBook.cover" alt="{{ selected.cover }}">
-    <h1>{{ selectedBook.title }}</h1>
-    <h2>{{ selectedBook.author }}</h2>
-    <h4>{{ selectedBook.publisher }}</h4>
-    <h4>{{ selectedBook.pubDate }}</h4>
-    <h4>{{ selectedBook.priceSales }}</h4>
-    <p>{{ selectedBook.description }}</p>
-  </div>
+    <div v-if="isActive" id="modal">
+      <img :src="selectedBook.cover" alt="{{ selectedBook.cover }}">
+      <h1>{{ selectedBook.title }}</h1>
+      <h2>{{ selectedBook.author }}</h2>
+      <h4>{{ selectedBook.publisher }}</h4>
+      <h4>{{ selectedBook.pubDate }}</h4>
+      <h4>{{ selectedBook.priceSales }}</h4>
+      <p>{{ selectedBook.description }}</p>
+    </div>
+</div>
   </template>
 
 <script setup>
