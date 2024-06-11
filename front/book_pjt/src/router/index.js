@@ -14,6 +14,8 @@ import ArticleItemView from '@/views/ArticleItemView.vue'
 import ArticleCreateView from '@/views/ArticleCreateView.vue'
 import MypageView from '@/views/MypageView.vue'
 
+import { useCounterStore } from '@/stores/counter'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -92,3 +94,10 @@ const router = createRouter({
 })
 
 export default router
+// .beforeEach((to, from) => {
+//   const store = useCounterStore()
+//   if (to.name === 'community' && !store.isLogin) {
+//     window.alert('로그인이 필요합니다')
+//     return { name: 'login'}
+//   }
+// })

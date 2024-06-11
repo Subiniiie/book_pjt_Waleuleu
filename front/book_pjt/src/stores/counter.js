@@ -91,9 +91,18 @@ export const useCounterStore = defineStore('counter', () => {
         console.log('에러가 발생했습니다', error)
       })
   }
+
+  // 로그인 상태 확인
+  const isLogin = computed(() => {
+    if (token.value === null) {
+      return false
+    } else {
+      return true
+    }
+  })
   return {
-    API_URL, token, user, isAuthenticated, userInfo,
-    signUp, logIn, getMyPage,
+    API_URL, token, user, isAuthenticated, userInfo, isLogin,
+    signUp, logIn, getMyPage, 
   }
 
 }, {persist:true})
