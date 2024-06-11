@@ -2,13 +2,15 @@
   <div>
     <h1>🔔최신도서 목록입니다.</h1>
     <div class="book">
-      <span 
-        v-for="newBook in BookStore.newBooks"
-        :key="newBook.title"
-        class="books"
-      >
-        <img :src="newBook.cover" alt="{{ newBook.cover }}" @click="makeModal(newBook)">
-      </span>
+      <ul>
+        <span 
+          v-for="newBook in currentPage"
+          :key="newBook.title"
+          class="books"
+        >
+          <img :src="newBook.cover" alt="newBook.cover" @click="makeModal(newBook)">
+        </span>
+      </ul>
       <div class="pagination-container">
         <div class="prev-btn">이전</div>
         <div class="number-btn-wrapper" ref="numberBtnWrapper">
@@ -16,6 +18,7 @@
             v-for="pageNumber in getTotalPage"
             :key="pageNumber"
             class="number-btn"
+            @click="setPageOf(pageNumber)"
           >
             {{ pageNumber }}
         </span>
@@ -42,10 +45,6 @@ import { useBookStore } from '@/stores/book'
 
 const BookStore = useBookStore()
 
-onMounted(() => {
-  BookStore.getNewbooks()
-})
-
 // 이미지 클릭하면 책 정보
 const isActive = ref(false)
 const selectedBook = ref(null)
@@ -55,13 +54,33 @@ const makeModal = function(newBook) {
   isActive.value = true
 }
 
-  // 페이지네이션
-  const PerPage = 12
+// 페이지네이션
+const PerPage = 12
 
-  const getTotalPage = computed(() => {
-    return Math.ceil(BookStore.newBooks.length / PerPage)
-  })
+const getTotalPage = computed(() => {
+  return Math.ceil(BookStore.newBooks.length / PerPage)
+})
 
+const currentPage = ref([])
+const currentPageNumber = ref(1)
+
+const setPageOf = function(pageNumber) {
+  currentPage.value = []
+  for (
+    let i = PerPage * (pageNumber - 1);
+    i <= PerPage * (pageNumber - 1) + 11 && i <= BookStore.newBooks.length;
+    i++
+    ) {
+      if (BookStore.newBooks[i]){
+        currentPage.value.push(BookStore.newBooks[i])
+        }
+    }
+}
+
+ onMounted(async () => {
+  BookStore.getNewbooks()
+  setPageOf(1)
+})
 </script>
 
 <style scoped>
