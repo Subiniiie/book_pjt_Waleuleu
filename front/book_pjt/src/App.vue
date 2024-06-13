@@ -9,7 +9,7 @@
           <RouterLink :to="{ name: 'category'}">장르</RouterLink>
            
           <RouterLink :to="{ name: 'home'}">
-            <img src="../public/logo.png" alt="logo">
+            <img src="/logo.png" alt="logo">
           </RouterLink>
            
           <RouterLink :to="{ name: 'author'}">인기작가</RouterLink>
