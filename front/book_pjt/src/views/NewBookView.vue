@@ -28,7 +28,7 @@
     </div>
     <div v-if="isActive" id="modal">
       <div class="x-mark" @click="closeModal">❌</div>
-      <img :src="selectedBook.cover" alt="{{ selectedBook.cover }}" class="selected-book-cover">
+      <img :src="selectedBook.cover" alt="selectedBook.cover" class="selected-book-cover">
       <div class="modal-text">
         <h1>{{ selectedBook.title }}</h1>
         <h2>{{ selectedBook.author }}</h2>
