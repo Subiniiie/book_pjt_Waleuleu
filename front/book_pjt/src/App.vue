@@ -12,7 +12,7 @@
             <img src="/logo.png" alt="logo">
           </RouterLink>
            
-          <RouterLink :to="{ name: 'author'}">인기작가</RouterLink>
+          <RouterLink :to="{ name: 'author'}">작가검색</RouterLink>
           | 
           <RouterLink :to="{ name: 'community'}">커뮤니티</RouterLink>
           | 

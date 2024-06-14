@@ -96,7 +96,7 @@ const prevPage = function() {
 
 const nextPage = function() {
   if (currentPageNumber.value < getTotalPage.value) {
-    setPageOf(currentPageNumber,vlaue + 1)
+    setPageOf(currentPageNumber.value + 1)
   }
 }
 

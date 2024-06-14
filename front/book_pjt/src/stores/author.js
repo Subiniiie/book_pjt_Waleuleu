@@ -14,7 +14,7 @@ export const useAuthorStore = defineStore('author', () => {
         ttbkey: API_KEY,
         // 검색어 입력창
         Query: keyword,
-        QueryType: 'Keyword',
+        QueryType: 'Author',
         MaxResults: 50,
         start: 1,
         SearchTarget: 'Book',
