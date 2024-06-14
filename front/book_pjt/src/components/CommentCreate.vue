@@ -1,7 +1,6 @@
 <template>
   <div>
     <form @submit.prevent="createComment">
-      <label for="content">내용</label>
       <input type="text" name="content" v-model="content">
       <button>댓글 작성</button>
     </form>
@@ -19,9 +18,9 @@ const props = defineProps({
 const content = ref(null)
 const createComment = function() {
   commentStore.commentCreate(props.articlePk, content.value)
+  content.value = null
 }
 </script>
 
 <style scoped>
-
 </style>
