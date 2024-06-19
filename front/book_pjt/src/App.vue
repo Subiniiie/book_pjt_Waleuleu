@@ -6,7 +6,7 @@
            | 
           <RouterLink :to="{ name: 'bestseller' }">베스트셀러</RouterLink>
           | 
-          <RouterLink :to="{ name: 'category'}">장르</RouterLink>
+          <RouterLink :to="{ name: 'domestic'}">국내도서</RouterLink>
            
           <RouterLink :to="{ name: 'home'}">
             <img src="/logo.png" alt="logo">

@@ -59,7 +59,6 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useAuthorStore } from '@/stores/author'
-import Author from '@/components/Author.vue';
 
 const AuthorStore = useAuthorStore()
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>베스트샐러 상세페이지</h2>
+    <h1>국내도서</h1>
   </div>
 </template>
 

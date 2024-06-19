@@ -19,7 +19,7 @@ export const useBookStore = defineStore('book', () => {
           SearchTarget: 'Book',
           output: 'js',
           Version: '20131101'
-        } 
+        }
     })
       .then((response) => {
         newBooks.value = response.data.item

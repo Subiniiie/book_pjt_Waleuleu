@@ -3,12 +3,9 @@ import HomeView from '@/views/HomeView.vue'
 import SignupView from '@/views/SignupView.vue'
 import LoginView from '@/views/LoginView.vue'
 import NewBookView from '@/views/NewBookView.vue'
-import NewBookItemView from '@/views/NewBookItemView.vue'
 import BestsellerView from '@/views/BestsellerView.vue'
-import BestsellerItemView from '@/views/BestsellerItemView.vue'
 import AuthorView from '@/views/AuthorView.vue'
-import AuthorItemView from '@/views/AuthorItemView.vue'
-import CategoryView from '@/views/CategoryView.vue'
+import DomesticView from '@/views/DomesticView.vue'
 import CommunityView from '@/views/CommunityView.vue'
 import ArticleItemView from '@/views/ArticleItemView.vue'
 import ArticleCreateView from '@/views/ArticleCreateView.vue'
@@ -40,19 +37,9 @@ const router = createRouter({
       component: NewBookView
     },
     {
-      path: '/newbook/:id',
-      name: 'new-book-item',
-      component: NewBookItemView
-    },
-    {
       path: '/bestseller',
       name: 'bestseller',
       component: BestsellerView
-    },
-    {
-      path: '/bestseller/:id',
-      name: 'bestseller-item',
-      component: BestsellerItemView
     },
     {
       path: '/author',
@@ -60,14 +47,9 @@ const router = createRouter({
       component: AuthorView
     },
     {
-      path: '/author/:id',
-      name: 'author-item',
-      component: AuthorItemView
-    },
-    {
-      path: '/category',
-      name: 'category',
-      component: CategoryView
+      path: '/domestic',
+      name: 'domestic',
+      component: DomesticView
     },
     {
       path: '/community',
@@ -94,10 +76,3 @@ const router = createRouter({
 })
 
 export default router
-// .beforeEach((to, from) => {
-//   const store = useCounterStore()
-//   if (to.name === 'community' && !store.isLogin) {
-//     window.alert('로그인이 필요합니다')
-//     return { name: 'login'}
-//   }
-// })
